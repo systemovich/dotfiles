@@ -81,3 +81,6 @@ nnoremap <leader>bw :bw<cr>
 "======= begin: Clipboard
 set clipboard=unnamedplus
 "======= end: Clipboard
+
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
