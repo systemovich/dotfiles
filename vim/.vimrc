@@ -8,8 +8,11 @@ Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edkolev/promptline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/grep.vim'
+Plug 'mileszs/ack.vim'
+
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
