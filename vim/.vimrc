@@ -22,6 +22,10 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'andviro/flake8-vim'
 
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'SirVer/ultisnips'
+Plug 'moll/vim-bbye'
 
 call plug#end()
 "======= end: Plug
@@ -51,8 +55,11 @@ let g:airline#extensions#tabline#fnamecollapse = 1
 "======= end: Airline
 
 "======= begin: Appearance
-color desert
-set guifont=Inconsolata\ for\ Powerline\ 11
+syntax enable
+set background=dark
+colorscheme solarized
+
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
 
 set guioptions-=L
 set guioptions-=T
@@ -75,7 +82,7 @@ let g:indent_guides_guide_size=1
 nnoremap <leader>b :<C-u>execute 'b' v:count<cr>
 nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
-nnoremap <leader>bw :bw<cr>
+nnoremap <leader>bw :Bdelete<cr>
 "======= end: Buffers
 
 "======= begin: Clipboard
@@ -84,3 +91,6 @@ set clipboard=unnamedplus
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
+"======= begin: Code Folding
+"au FileType javascript call JavaScriptFold()
+"======= end: Code Folding
