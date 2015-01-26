@@ -1,7 +1,7 @@
-# ~/.tmuxinator/newsletters.yml
+# ~/.tmuxinator/roadsofcode.yml
 
-name: newsletters
-root: ~/src/media24/spree/newsletters
+name: roadsofcode
+root: ~/src/roadsofcode.com
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,9 +19,5 @@ root: ~/src/media24/spree/newsletters
 # tmux_command: byobu
 
 windows:
-  - shell: 
-  - editor: vim   
-  - version-control: tig
-  - logs: nodemon ./bin/www | bunyan
-  - interpreter: node
-
+  - shell: bash 
+  - logs: raco frog -bp

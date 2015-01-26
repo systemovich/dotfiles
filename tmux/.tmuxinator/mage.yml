@@ -1,7 +1,7 @@
-# ~/.tmuxinator/newsletters.yml
+# ~/.tmuxinator/mage.yml
 
-name: newsletters
-root: ~/src/media24/spree/newsletters
+name: mage
+root: ~/src/media24/spree/mage
 
 # Optional tmux socket
 # socket_name: foo
@@ -20,8 +20,13 @@ root: ~/src/media24/spree/newsletters
 
 windows:
   - shell: 
-  - editor: vim   
+  - editor: vim
   - version-control: tig
-  - logs: nodemon ./bin/www | bunyan
-  - interpreter: node
+  - logs:
+      layout: main-vertical
+      panes:
+          - spree.watch
+          - spree.tail
+  - interpreter: php -a
+  - catalog: spree.catalog
 

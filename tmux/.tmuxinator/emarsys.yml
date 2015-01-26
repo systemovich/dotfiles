@@ -1,7 +1,7 @@
-# ~/.tmuxinator/newsletters.yml
+# ~/.tmuxinator/emarsys.yml
 
-name: newsletters
-root: ~/src/media24/spree/newsletters
+name: emarsys
+root: ~/src/media24/spree/emarsys
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,9 +19,7 @@ root: ~/src/media24/spree/newsletters
 # tmux_command: byobu
 
 windows:
-  - shell: 
-  - editor: vim   
+  - shell:
+  - editor: vim
   - version-control: tig
-  - logs: nodemon ./bin/www | bunyan
   - interpreter: node
-

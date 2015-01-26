@@ -1,7 +1,7 @@
-# ~/.tmuxinator/newsletters.yml
+# ~/.tmuxinator/releases.yml
 
-name: newsletters
-root: ~/src/media24/spree/newsletters
+name: releases
+root: ~/src/media24/spree
 
 # Optional tmux socket
 # socket_name: foo
@@ -19,9 +19,8 @@ root: ~/src/media24/spree/newsletters
 # tmux_command: byobu
 
 windows:
-  - shell: 
-  - editor: vim   
-  - version-control: tig
-  - logs: nodemon ./bin/www | bunyan
-  - interpreter: node
+  - shell:
+  - mage: cd mage
+  - catalog: cd catalog
+  - journal: cd journal
 
