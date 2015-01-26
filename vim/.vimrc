@@ -11,6 +11,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/grep.vim'
+Plug 'mileszs/ack.vim'
+
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -93,6 +95,8 @@ nnoremap <leader>bw :Bdelete<cr>
 set clipboard=unnamedplus
 "======= end: Clipboard
 
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
 "======= begin: Code Folding
 "au FileType javascript call JavaScriptFold()
 "======= end: Code Folding
