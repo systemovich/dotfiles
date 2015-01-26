@@ -8,7 +8,6 @@ Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edkolev/promptline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'spolu/dwm.vim'
 
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/grep.vim'
@@ -25,6 +24,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'moll/vim-bbye'
+Plug 'walm/jshint.vim'
+Plug 'jimmyhchan/dustjs.vim'
+Plug 'joonty/vdebug'
 
 call plug#end()
 "======= end: Plug
@@ -56,7 +58,7 @@ let g:airline#extensions#tabline#fnamecollapse = 1
 "======= begin: Appearance
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme desert
 
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
 
@@ -66,6 +68,7 @@ set guioptions-=r
 set guioptions-=R
 
 set nu
+"set cursorline
 "======= end: Appearance
 
 "======= begin: Indentation
@@ -75,6 +78,8 @@ set shiftwidth=4
 retab
 
 let g:indent_guides_guide_size=1
+set formatoptions+=l
+set lbr
 "======= end: Indentation
 
 "======= begin: Buffers
