@@ -1,7 +1,7 @@
-# ~/.tmuxinator/catalog.yml
+# ~/.tmuxinator/scripts.yml
 
-name: catalog
-root: ~/src/media24/spree/catalog
+name: scripts
+root: ~/src/media24/spree/scripts
 
 # Optional tmux socket
 # socket_name: foo
@@ -21,7 +21,5 @@ root: ~/src/media24/spree/catalog
 windows:
   - shell:
   - editor: vim
-  - version-control: tig
-  - logs: spree.catalog
-  - interpreter: node
+  - version-control: tig 
 

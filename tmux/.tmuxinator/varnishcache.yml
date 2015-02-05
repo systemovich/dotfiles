@@ -1,7 +1,7 @@
-# ~/.tmuxinator/catalog.yml
+# ~/.tmuxinator/varnishcache.yml
 
-name: catalog
-root: ~/src/media24/spree/catalog
+name: varnishcache
+root: ~/src/media24/spree/varnishcache
 
 # Optional tmux socket
 # socket_name: foo
@@ -22,6 +22,4 @@ windows:
   - shell:
   - editor: vim
   - version-control: tig
-  - logs: spree.catalog
-  - interpreter: node
 
