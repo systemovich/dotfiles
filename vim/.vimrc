@@ -7,12 +7,15 @@ Plug 'tpope/vim-sensible'
 Plug 'bling/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'edkolev/promptline.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vim-scripts/sudo.vim'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'mileszs/ack.vim'
-
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -20,28 +23,30 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/YouCompleteMe'
 Plug 'andviro/flake8-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'rstacruz/sparkup'
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'altercation/vim-colors-solarized'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'SirVer/ultisnips'
-Plug 'moll/vim-bbye'
 Plug 'walm/jshint.vim'
 Plug 'jimmyhchan/dustjs.vim'
 Plug 'joonty/vdebug'
+Plug 'xsbeats/vim-blade'
 
 call plug#end()
 "======= end: Plug
 
 "======= begin: NERDTree
-map <leader>nt :NERDTreeToggle<cr>
+map <leader>nt :NERDTreeTabsToggle<cr>
 let g:NERDTreeShowBookmarks=1
 "======= end: NERDTree
 
 "======= begin: Airline
 set laststatus=2
 
-let g:airline_theme='bubblegum'
+let g:airline_theme='ubaryd'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -62,7 +67,7 @@ syntax enable
 set background=dark
 colorscheme desert
 
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
+set guifont=Inconsolata\ for\ Powerline\ 12
 
 set guioptions-=L
 set guioptions-=T

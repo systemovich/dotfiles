@@ -1,0 +1,31 @@
+# ~/.tmuxinator/bernly.yml
+
+name: bernly
+root: ~/src/bernly
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - shell: 
+  - version-control: tig
+  - logs: tail -f /var/log/nginx/{bernly.dev--error.log,bernly.dev--access.log}
+  - interpreters:
+      layout: horizontal
+      panes:
+        - php -a
+        - node
+  - database: mysql
+
