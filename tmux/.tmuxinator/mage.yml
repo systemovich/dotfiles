@@ -28,5 +28,4 @@ windows:
           - spree.watch
           - spree.tail
   - interpreter: php -a
-  - catalog: spree.catalog
 
