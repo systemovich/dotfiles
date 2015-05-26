@@ -1,52 +1,80 @@
-cd ~
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
+set noswapfile 
+let mapleader=","
+autocmd FileType c,cpp,java,php,javascript,html,css autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "======= begin: Plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-sensible'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'andviro/flake8-vim'
 Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 Plug 'edkolev/promptline.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'edkolev/tmuxline.vim'
+Plug 'jelera/vim-JavaScript-syntax'
+Plug 'jimmyhchan/dustjs.vim'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'vim-scripts/sudo.vim'
-Plug 'xolox/vim-session'
-Plug 'xolox/vim-misc'
-
+Plug 'joonty/vdebug'
 Plug 'kien/ctrlp.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'rstacruz/sparkup'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+
+    " Snippets
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+    " Version Control
+Plug 'tpope/vim-fugitive'
+
+Plug 'tpope/vim-sensible'
+
+    " Autocompletion
+Plug 'Valloric/YouCompleteMe'
+
+    " Search
 Plug 'vim-scripts/grep.vim'
 Plug 'mileszs/ack.vim'
 
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/sudo.vim'
 
-Plug 'scrooloose/syntastic'
-Plug 'Valloric/YouCompleteMe'
-Plug 'andviro/flake8-vim'
-Plug 'Raimondi/delimitMate'
-Plug 'rstacruz/sparkup'
-
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'altercation/vim-colors-solarized'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'SirVer/ultisnips'
+    " Debugging
 Plug 'walm/jshint.vim'
-Plug 'jimmyhchan/dustjs.vim'
-Plug 'joonty/vdebug'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
 Plug 'xsbeats/vim-blade'
+Plug 'lfilho/cosco.vim'
 
 call plug#end()
 "======= end: Plug
 
+"======= begin: UltiSnips
+    " make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"======= end: UltiSnips
+
 "======= begin: NERDTree
-map <leader>nt :NERDTreeTabsToggle<cr>
+map <leader>n :NERDTreeTabsToggle<cr>
 let g:NERDTreeShowBookmarks=1
 "======= end: NERDTree
 
 "======= begin: Airline
 set laststatus=2
 
-let g:airline_theme='laederon'
+let g:airline_theme='solarized'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -62,10 +90,20 @@ let g:airline#extensions#tabline#fnamemod = ":t"
 let g:airline#extensions#tabline#fnamecollapse = 1 
 "======= end: Airline
 
+"======= begin: DelimitMate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+"======= end: DelimitMate
+
+"======= begin: Cosco
+autocmd FileType javascript,css,YOUR_LANG nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+"======= end: Cosco
+
 "======= begin: Appearance
 syntax enable
 set background=dark
-colorscheme desert
+colorscheme solarized
 
 set guifont=Inconsolata\ for\ Powerline\ 12
 
@@ -79,6 +117,7 @@ set nu
 "======= end: Appearance
 
 "======= begin: Indentation
+filetype plugin indent on
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -100,8 +139,7 @@ nnoremap <leader>bw :Bdelete<cr>
 set clipboard=unnamedplus
 "======= end: Clipboard
 
-set exrc            " enable per-directory .vimrc files
-set secure          " disable unsafe commands in local .vimrc files
 "======= begin: Code Folding
 "au FileType javascript call JavaScriptFold()
 "======= end: Code Folding
+

@@ -21,11 +21,11 @@ root: ~/src/bernly
 windows:
   - shell: 
   - version-control: tig
-  - logs: tail -f /var/log/nginx/{bernly.dev--error.log,bernly.dev--access.log}
+  - logs: tail -f /var/log/nginx/{bernly.dev--error.log,bernly.dev--access.log} | ccze -A
   - interpreters:
       layout: horizontal
       panes:
-        - php -a
+        - ./artisan tinker 
         - node
-  - database: mysql
+  - database: mysql --host=localhost --database=bernly --user=bernly --password=s8uzmP8UR7fydYQZ
 
