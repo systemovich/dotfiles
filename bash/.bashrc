@@ -113,5 +113,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#=============================================================================
+# Python Virtual Environment
+#=============================================================================
+if [[ -d $HOME/.pyvenv ]]; then
+    export VENV=$HOME/.pyvenv
+    alias py=$VENV/bin/python3.4
+    alias easy_install=$VENV/bin/easy_install-3.4
+    alias pip=$VENV/bin/pip3.4
+fi
+
+#=============================================================================
 # Bash Git Prompt
+#=============================================================================
 source ~/.bash_git_prompt/gitprompt.sh
