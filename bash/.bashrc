@@ -114,14 +114,21 @@ if ! shopt -oq posix; then
 fi
 
 #=============================================================================
-# Python Virtual Environment
+# Personal Shell Scripts 
 #=============================================================================
-if [[ -d $HOME/.pyvenv ]]; then
-    export VENV=$HOME/.pyvenv
-    alias py=$VENV/bin/python3.4
-    alias easy_install=$VENV/bin/easy_install-3.4
-    alias pip=$VENV/bin/pip3.4
-fi
+export PATH=$HOME/bin:$PATH
+
+#=============================================================================
+# Laravel Web Framework 
+#=============================================================================
+export PATH=$HOME/.composer/vendor/bin:$PATH
+
+#=============================================================================
+# ok.sh Github Command Line Client 
+#=============================================================================
+export OCTOKIT_SH_URL=https://api.github.com # Base URL for GitHub or GitHub Enterprise.
+export OCTOKIT_SH_ACCEPT=application/vnd.github.v3+json # The 'Accept' header to send with each request.
+export OCTOKIT_SH_JQ_BIN=jq # The name of the jq binary, if installed.
 
 #=============================================================================
 # Bash Git Prompt

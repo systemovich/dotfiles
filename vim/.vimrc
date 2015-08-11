@@ -2,11 +2,13 @@ set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 set noswapfile 
 let mapleader=","
-autocmd FileType c,cpp,java,php,javascript,html,css autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+"======= Delete trailing white space on save
+autocmd FileType c,cpp,java,php,python,javascript,html,css autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "======= begin: Plug
 call plug#begin('~/.vim/plugged')
-
+Plug 'vim-scripts/scribble.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'andviro/flake8-vim'
@@ -24,7 +26,9 @@ Plug 'rstacruz/sparkup'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
-
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'godlygeek/tabular'
     " Snippets
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
@@ -51,7 +55,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'xsbeats/vim-blade'
 Plug 'lfilho/cosco.vim'
-
+Plug 'tpope/vim-surround'
 call plug#end()
 "======= end: Plug
 
@@ -105,7 +109,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-set guifont=Inconsolata\ for\ Powerline\ 12
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 
 set guioptions-=L
 set guioptions-=T
@@ -113,7 +117,11 @@ set guioptions-=r
 set guioptions-=R
 
 set nu
-"set cursorline
+
+autocmd FileType python set textwidth=79
+autocmd FileType python set formatoptions+=t 
+
+set cursorline
 "======= end: Appearance
 
 "======= begin: Indentation
