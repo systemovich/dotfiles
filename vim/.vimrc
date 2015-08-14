@@ -78,7 +78,7 @@ let g:NERDTreeShowBookmarks=1
 "======= begin: Airline
 set laststatus=2
 
-let g:airline_theme='solarized'
+let g:airline_theme='molokai'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
