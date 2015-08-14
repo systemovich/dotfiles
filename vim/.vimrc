@@ -4,7 +4,7 @@ set noswapfile
 let mapleader=","
 
 "======= Delete trailing white space on save
-autocmd FileType c,cpp,java,php,python,javascript,html,css autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "======= begin: Plug
 call plug#begin('~/.vim/plugged')
