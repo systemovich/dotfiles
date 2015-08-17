@@ -4,7 +4,7 @@ set noswapfile
 let mapleader=","
 
 "======= Delete trailing white space on save
-autocmd FileType c,cpp,java,php,python,javascript,html,css autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "======= begin: Plug
 call plug#begin('~/.vim/plugged')
@@ -78,7 +78,7 @@ let g:NERDTreeShowBookmarks=1
 "======= begin: Airline
 set laststatus=2
 
-let g:airline_theme='solarized'
+let g:airline_theme='molokai'
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
