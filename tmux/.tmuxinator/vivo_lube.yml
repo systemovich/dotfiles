@@ -1,7 +1,7 @@
 # ~/.tmuxinator/vivo.lube.yml
 
 name: vivo_lube
-root: ~/src/skipjack/infosight/vivo.lube
+root: ~/src/skipjack/infosight/vivo_lube
 
 # Optional tmux socket
 # socket_name: foo
@@ -29,5 +29,6 @@ root: ~/src/skipjack/infosight/vivo.lube
 
 windows:
   - shell:
-  - logs: tail -f /var/log/apache2/lube.vivo.skipjack.co.za--error.log | ccze -A
+  - server: tail -f /var/log/apache2/lube.vivo.skipjack.co.za--error.log | ccze -A
   - interpreter: psysh
+  - version-control: tig
