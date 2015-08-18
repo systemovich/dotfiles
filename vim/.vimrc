@@ -8,6 +8,9 @@ autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown autocmd BufW
 
 "======= begin: Plug
 call plug#begin('~/.vim/plugged')
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+
 Plug 'vim-scripts/scribble.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
