@@ -112,7 +112,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export EDITOR=gvim
+export EDITOR=vim
 #=============================================================================
 # Personal Shell Scripts 
 #=============================================================================
