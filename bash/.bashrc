@@ -122,6 +122,7 @@ export PATH=$HOME/bin:$PATH
 # Laravel Web Framework 
 #=============================================================================
 export PATH=$HOME/.composer/vendor/bin:$PATH
+alias vm="ssh vagrant@127.0.0.1 -p 2222"
 
 #=============================================================================
 # ok.sh Github Command Line Client 
