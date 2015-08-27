@@ -8,8 +8,14 @@ autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown autocmd BufW
 
 "======= begin: Plug
 call plug#begin('~/.vim/plugged')
+
+    " General
+Plug 'tpope/vim-sensible'
+
+    " File and Code Navigation, and Search
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
 
 Plug 'vim-scripts/scribble.vim'
 Plug 'airblade/vim-gitgutter'
@@ -40,14 +46,10 @@ Plug 'honza/vim-snippets'
     " Version Control
 Plug 'tpope/vim-fugitive'
 
-Plug 'tpope/vim-sensible'
 
     " Autocompletion
 Plug 'Valloric/YouCompleteMe'
 
-    " Search
-Plug 'vim-scripts/grep.vim'
-Plug 'mileszs/ack.vim'
 
 Plug 'vim-scripts/sudo.vim'
 
