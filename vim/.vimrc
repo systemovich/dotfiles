@@ -13,8 +13,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
     " File and Code Navigation, and Search
-Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
 
 Plug 'vim-scripts/scribble.vim'
