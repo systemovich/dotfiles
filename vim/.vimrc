@@ -4,63 +4,94 @@ set noswapfile
 let mapleader=","
 
 "======= Delete trailing white space on save
-autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown,asciidoc autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-"======= begin: Plug
+"==================== 
+" begin: Plug-ins
+"==================== 
 call plug#begin('~/.vim/plugged')
 
-    " General
-Plug 'tpope/vim-sensible'
+"======= Autocompletion
+Plug 'Shougo/neocomplete'
 
-    " File and Code Navigation, and Search
-Plug 'mileszs/ack.vim'
-
-Plug 'vim-scripts/scribble.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
-Plug 'andviro/flake8-vim'
-Plug 'bling/vim-airline'
-Plug 'edkolev/promptline.vim'
-Plug 'edkolev/tmuxline.vim'
-Plug 'jelera/vim-JavaScript-syntax'
-Plug 'jimmyhchan/dustjs.vim'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'joonty/vdebug'
-Plug 'kien/ctrlp.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Raimondi/delimitMate'
-Plug 'rstacruz/sparkup'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-fireplace'
-Plug 'godlygeek/tabular'
-    " Snippets
+"======= Code Snippets 
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-    " Version Control
-Plug 'tpope/vim-fugitive'
+"======= Colorschemes
+Plug 'altercation/vim-colors-solarized'
 
+"======= Comments
+Plug 'scrooloose/nerdcommenter'
 
-    " Autocompletion
-Plug 'Valloric/YouCompleteMe'
+"======= Debugging
+Plug 'joonty/vdebug'
 
+"======= File System Navigation
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
 
+"======= General
+" Sensible default settings for GVim.
+Plug 'tpope/vim-sensible'
+
+" Allows you to save a file using the sudo command,
+" e.g. :w sudo:%
 Plug 'vim-scripts/sudo.vim'
 
-    " Debugging
+"======= Syntax Checking 
+Plug 'scrooloose/syntastic'
+
+" Syntax checker for JavaScript
 Plug 'walm/jshint.vim'
+
+"======= Syntax Highlighting 
+Plug 'jelera/vim-JavaScript-syntax'
+Plug 'jimmyhchan/dustjs.vim' " Dust templating language
+Plug 'xsbeats/vim-blade'     " Blade templating language
+Plug 'dahu/vim-asciidoc'
+Plug 'dahu/vimple'
+Plug 'dahu/Asif'
+
+"======= Text Search
+" Works with the Perl-based ack command. It requires the ack-grep Ubuntu
+" package to be installed.
+Plug 'mileszs/ack.vim'
+
+"======= User Interface 
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+
+"======= Version Control 
+" Provides Vim versions of some Git commands, e.g. :GitStatus.
+Plug 'tpope/vim-fugitive'
+    
+"  Depends on vim-fugitive. Displays +, -, or ~ in Vim's gutter (column left
+"  of the column with line numbers) to indicated whether a line has been
+"  added, deleted, or modified compared to the last committed version of the
+"  file. Also indicates total number of lines added, deleted and modified, and
+"  the current branch of the Git repository.
+Plug 'airblade/vim-gitgutter'
+
+
+Plug 'vim-scripts/scribble.vim'
+Plug 'andviro/flake8-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'rstacruz/sparkup'
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
+Plug 'godlygeek/tabular'
 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-Plug 'xsbeats/vim-blade'
-Plug 'lfilho/cosco.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
-"======= end: Plug
+"==================== 
+" end: Plug-ins
+"==================== 
 
 "======= begin: UltiSnips
     " make YCM compatible with UltiSnips (using supertab)
@@ -121,7 +152,8 @@ set guioptions-=R
 
 set nu
 
-autocmd FileType python set textwidth=79
+autocmd BufRead,BufNewFile *.asc setfiletype asciidoc
+autocmd FileType python,asciidoc set textwidth=80
 autocmd FileType python set formatoptions+=t 
 
 set cursorline
