@@ -3,78 +3,80 @@ set secure          " disable unsafe commands in local .vimrc files
 set noswapfile 
 let mapleader=","
 
-"======= Delete trailing white space on save
+" Delete trailing white space on save
 autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown,asciidoc autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-"==================== 
-" begin: Plug-ins
-"==================== 
+"-------------------------------------------------------------------------------
+" begin: Plug-In Installation
+"-------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-"======= Autocompletion
+"------- Autocompletion
 Plug 'Shougo/neocomplete'
 
-"======= Code Snippets 
+"------- Code Snippets 
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-"======= Colorschemes
+"------- Colorschemes
 Plug 'altercation/vim-colors-solarized'
 
-"======= Comments
-Plug 'scrooloose/nerdcommenter'
+"------- Comments
+Plug 'scrooloose/nerdcommenter' " Comment and uncomment lines with commands 
+                                " that start with <leader>c. Comment 
+                                " characters are specific to the file type.
 
-"======= Debugging
-Plug 'joonty/vdebug'
+"------- Debugging
+Plug 'joonty/vdebug' " XDebug integration for PHP. Also provides debugging 
+                     " integrations for other languages.
 
-"======= File System Navigation
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'kien/ctrlp.vim'
+"------- File System Navigation
+Plug 'scrooloose/nerdtree'      " Provides a left window split for navigation the 
+                                " file system tree.
+Plug 'jistr/vim-nerdtree-tabs'  " Provides same NERDTree for each tab.
+Plug 'kien/ctrlp.vim'           " Fuzzy file finder. Start it with Ctrl+P key 
+                                " combination. 
 
-"======= General
-" Sensible default settings for GVim.
-Plug 'tpope/vim-sensible'
+"------- General
+Plug 'tpope/vim-sensible' " Sensible default settings for GVim.
 
-" Allows you to save a file using the sudo command,
-" e.g. :w sudo:%
-Plug 'vim-scripts/sudo.vim'
+Plug 'vim-scripts/sudo.vim' " Allows you to save a file using the sudo command,
+                            " e.g. :w sudo:%
+ 
+"------- Syntax Checking 
+Plug 'scrooloose/syntastic' " Provides syntax checking for many programming 
+                            " languages.
+Plug 'walm/jshint.vim'      " Syntax checker for JavaScript
 
-"======= Syntax Checking 
-Plug 'scrooloose/syntastic'
-
-" Syntax checker for JavaScript
-Plug 'walm/jshint.vim'
-
-"======= Syntax Highlighting 
+"------- Syntax Highlighting 
 Plug 'jelera/vim-JavaScript-syntax'
 Plug 'jimmyhchan/dustjs.vim' " Dust templating language
 Plug 'xsbeats/vim-blade'     " Blade templating language
-Plug 'dahu/vim-asciidoc'
+Plug 'dahu/vim-asciidoc'     " AsciiDoc markup language
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 
-"======= Text Search
-" Works with the Perl-based ack command. It requires the ack-grep Ubuntu
-" package to be installed.
-Plug 'mileszs/ack.vim'
+"------- Text Search
+Plug 'mileszs/ack.vim' " Works with the Perl-based ack command. It requires the ack-grep Ubuntu
+                       " package to be installed.
 
-"======= User Interface 
-Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
+"------- User Interface 
+Plug 'bling/vim-airline'    " Provides a more functional and better-looking 
+                            " status line.
+Plug 'edkolev/tmuxline.vim' " Allows for passing the settings for Vim's status 
+                            " line to Tmux's status line. To do this, start 
+                            " Tmux in a terminal, then run Vim.
 
-"======= Version Control 
+"------- Version Control 
 " Provides Vim versions of some Git commands, e.g. :GitStatus.
 Plug 'tpope/vim-fugitive'
-    
-"  Depends on vim-fugitive. Displays +, -, or ~ in Vim's gutter (column left
-"  of the column with line numbers) to indicated whether a line has been
-"  added, deleted, or modified compared to the last committed version of the
-"  file. Also indicates total number of lines added, deleted and modified, and
-"  the current branch of the Git repository.
-Plug 'airblade/vim-gitgutter'
 
+Plug 'airblade/vim-gitgutter' "  Depends on vim-fugitive. Displays +, -, or ~ in Vim's gutter (column left
+                              "  of the column with line numbers) to indicated whether a line has been
+                              "  added, deleted, or modified compared to the last committed version of the
+                              "  file. Also indicates, in status line, total number of lines added, deleted and modified, and
+                              "  the current branch of the Git repository.
 
 Plug 'vim-scripts/scribble.vim'
 Plug 'andviro/flake8-vim'
@@ -89,27 +91,10 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'tpope/vim-surround'
 call plug#end()
+
 "==================== 
-" end: Plug-ins
+" begin: Airline 
 "==================== 
-
-"======= begin: UltiSnips
-    " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"======= end: UltiSnips
-
-"======= begin: NERDTree
-map <leader>n :NERDTreeTabsToggle<cr>
-let g:NERDTreeShowBookmarks=1
-"======= end: NERDTree
-
-"======= begin: Airline
 set laststatus=2
 
 let g:airline_theme='molokai'
@@ -126,50 +111,77 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = "%s: " 
 let g:airline#extensions#tabline#fnamemod = ":t" 
 let g:airline#extensions#tabline#fnamecollapse = 1 
-"======= end: Airline
 
-"======= begin: DelimitMate
+"==================== 
+" begin: DelimitMate 
+"==================== 
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
-"======= end: DelimitMate
+"==================== 
+" end: DelimitMate 
+"==================== 
 
-"======= begin: Cosco
-autocmd FileType javascript,css,YOUR_LANG nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
-"======= end: Cosco
+"==================== 
+" begin: NERDTree 
+"==================== 
+map <leader>n :NERDTreeTabsToggle<cr>
+let g:NERDTreeShowBookmarks=1
+"==================== 
+" end: NERDTree 
+"==================== 
 
-"======= begin: Appearance
-syntax enable
+"==================== 
+" begin: UltiSnips 
+"==================== 
+" Make YCM compatible with UltiSnips (using supertab).
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"==================== 
+" begin: Appearance 
+"==================== 
 set background=dark
 colorscheme solarized
+" Enable syntax highlighting.
+syntax enable
+" Display line numbers.
+set number
+" Highlight the line on which the cursor is.
+set cursorline
 
+"------- GUI Options
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
-
-set guioptions-=L
-set guioptions-=T
+" Do not show left scrollbar.
+set guioptions-=L 
+" Do not show right-handside scrollbar even when there is a vertically-split window.
+set guioptions-=R 
+" Never show the right-hand scrollbar.
 set guioptions-=r
-set guioptions-=R
+" Do no show toolbar. 
+set guioptions-=T 
 
-set nu
-
-autocmd BufRead,BufNewFile *.asc setfiletype asciidoc
 autocmd FileType python,asciidoc set textwidth=80
 autocmd FileType python set formatoptions+=t 
 
-set cursorline
-"======= end: Appearance
 
-"======= begin: Indentation
+"==================== 
+" begin: Indentation 
+"==================== 
 filetype plugin indent on
 set expandtab
 set tabstop=4
 set shiftwidth=4
 retab
 
+"------- Plug-In - Indent Guides
 let g:indent_guides_guide_size=1
-set formatoptions+=l
-set lbr
-"======= end: Indentation
+
+set linebreak
 
 "======= begin: Buffers
 nnoremap <leader>b :<C-u>execute 'b' v:count<cr>
