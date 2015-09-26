@@ -123,6 +123,7 @@ export PATH=$HOME/bin:$PATH
 #=============================================================================
 export PATH=$HOME/.composer/vendor/bin:$PATH
 alias vm="ssh vagrant@127.0.0.1 -p 2222"
+alias artisan="php artisan"
 
 #=============================================================================
 # ok.sh Github Command Line Client 
