@@ -77,6 +77,7 @@ unset safe_term match_lhs sh
 # If the Git Prompt repository is available, use it to set the prompt.
 # It can be cloned from https://github.com/magicmonty/bash-git-prompt
 if [ -d ~/.bash_git_prompt ]; then
+    GIT_PROMPT_THEME=Solarized_Ubuntu
     source ~/.bash_git_prompt/gitprompt.sh
 else
     # Use the default prompt that comes with the distribution.
@@ -158,6 +159,9 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
+#------- Version Control ----------------------------------------------------
+
+export GIT_ASKPASS=/usr/bin/ksshaskpass
 
 #-----------------------------------------------------------------------------
 # Commands
