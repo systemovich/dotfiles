@@ -277,4 +277,3 @@ colors()
 		echo; echo
 	done
 }
-
