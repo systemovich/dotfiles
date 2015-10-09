@@ -155,7 +155,7 @@ set number
 set cursorline
 
 "------- GUI Options
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set guifont=Inconsolata\ 12
 " Do not show left scrollbar.
 set guioptions-=L 
 " Do not show right-handside scrollbar even when there is a vertically-split window.
