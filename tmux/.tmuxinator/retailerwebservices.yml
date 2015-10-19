@@ -1,7 +1,7 @@
 # ~/.tmuxinator/vivo.lube.yml
 
-name: retailer_web_services
-root: ~/src/skipjack/infosight/vivo_retailer_web_services
+name: retailerwebservices
+root: ~/src/laravel/retailerwebservices
 
 # Optional tmux socket
 # socket_name: foo
@@ -30,11 +30,4 @@ root: ~/src/skipjack/infosight/vivo_retailer_web_services
 windows:
   - shell:
   - version-control: tig
-  - database: mysql -h vertigo -u root
-  - server:
-      layout: even-horizontal
-      panes:
-        - tail -f /var/log/apache2/retailer.vivo.skipjack.co.za--access.log  | ccze -A
-        - tail -f /var/log/apache2/retailer.vivo.skipjack.co.za--error.log | ccze -A
-        - tail -f www/_logs/dev.log
   - interpreter: psysh
