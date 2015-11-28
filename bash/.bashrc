@@ -10,7 +10,7 @@ esac
 
 
 #-----------------------------------------------------------------------------
-# Window 
+# Window
 #-----------------------------------------------------------------------------
 
 #------- X Server -----------------------------------------------------------
@@ -71,7 +71,7 @@ unset safe_term match_lhs sh
 
 
 #-----------------------------------------------------------------------------
-# Prompt 
+# Prompt
 #-----------------------------------------------------------------------------
 
 # If the Git Prompt repository is available, use it to set the prompt.
@@ -100,7 +100,7 @@ fi
 
 
 #-----------------------------------------------------------------------------
-# Globs 
+# Globs
 #-----------------------------------------------------------------------------
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -108,12 +108,12 @@ fi
 
 
 #-----------------------------------------------------------------------------
-# History 
+# History
 #-----------------------------------------------------------------------------
 # Append to the history file; do not overwrite it.
 shopt -s histappend
 
-# The maximum number of commands to remember in the command history. 
+# The maximum number of commands to remember in the command history.
 HISTSIZE=10000
 
 # The maximum number of lines contained in the history file. (A command may
@@ -122,7 +122,7 @@ HISTFILESIZE=2000
 
 
 #-----------------------------------------------------------------------------
-# Bash Completion 
+# Bash Completion
 #-----------------------------------------------------------------------------
 
 # Enable programmable completion features (you don't need to enable
@@ -142,18 +142,21 @@ complete -cf sudo
 
 
 #-----------------------------------------------------------------------------
-# Environment Variables 
+# Environment Variables
 #-----------------------------------------------------------------------------
 
 export EDITOR=vim
 
 #------- PATH ----------------------------------------------------------------
 
-# Personal Shell Scripts 
+# Personal Shell Scripts
 export PATH=$HOME/bin:$PATH
 
-# Composer: Dependenccy manager for PHP
+# Composer: Dependency manager for PHP
 export PATH=$HOME/.composer/vendor/bin:$PATH
+
+# Ruby Gems: Package manager for Ruby
+export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
 
 #------- Package Management -------------------------------------------------
 
@@ -174,7 +177,7 @@ export GIT_ASKPASS=/usr/bin/ksshaskpass
 
 
 #-----------------------------------------------------------------------------
-# Aliases 
+# Aliases
 #-----------------------------------------------------------------------------
 
 shopt -s expand_aliases
@@ -202,7 +205,7 @@ if [ "$use_color" = true ]; then
     alias egrep='egrep --color=auto'
 fi
 
-unset use_color 
+unset use_color
 
 #------- PHP Development -----------------------------------------------------
 
@@ -222,7 +225,7 @@ fi
 
 
 #-----------------------------------------------------------------------------
-# Functions 
+# Functions
 #-----------------------------------------------------------------------------
 
 #
@@ -250,7 +253,7 @@ ex ()
   fi
 }
 
-colors() 
+colors()
 {
 	local fgc bgc vals seq0
 
