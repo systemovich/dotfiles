@@ -1,7 +1,7 @@
 # ~/.tmuxinator/vivo.lube.yml
 
 name: vivo_retailer
-root: ~/src/skipjack/infosight/vivo_retailer
+root: ~/src/skipjack/vivo_retailer
 
 # Optional tmux socket
 # socket_name: foo
