@@ -1,4 +1,4 @@
-# ~/.tmuxinator/vivo.lube.yml
+# ~/.tmuxinator/vivo_retailer.yml
 
 name: vivo_retailer
 root: ~/src/skipjack/infosight/vivo_retailer

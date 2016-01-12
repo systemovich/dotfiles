@@ -1,7 +1,7 @@
-# ~/.tmuxinator/vivo.lube.yml
+# ~/.tmuxinator/vivo_lube.yml
 
 name: vivo_lube
-root: ~/src/skipjack/infosight/vivo_lube
+root: ~/src/skipjack/infosight/vivo_lube_svn
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,7 +25,7 @@ root: ~/src/skipjack/infosight/vivo_lube
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t vivo.lube
+# post: tmux -CC attach -t vivo_lube
 
 windows:
   - shell:
