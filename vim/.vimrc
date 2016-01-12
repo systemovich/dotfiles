@@ -1,6 +1,7 @@
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 set noswapfile 
+set sessionoptions+=options
 let mapleader=","
 
 " Delete trailing white space on save
@@ -10,7 +11,6 @@ autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown,asciidoc aut
 " begin: Plug-In Installation
 "-------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-
 "------- Autocompletion
 Plug 'Shougo/neocomplete'
 
@@ -45,9 +45,13 @@ Plug 'vim-scripts/sudo.vim' " Allows you to save a file using the sudo command,
                             " e.g. :w sudo:%
  
 "------- Syntax Checking 
+Plug 'othree/html5.vim'
 Plug 'scrooloose/syntastic' " Provides syntax checking for many programming 
                             " languages.
-Plug 'walm/jshint.vim'      " Syntax checker for JavaScript
+                            
+"------- Code Style Checking 
+" JavaScript
+Plug 'jshint/jshint'
 
 "------- Syntax Highlighting 
 Plug 'jelera/vim-JavaScript-syntax'
@@ -56,6 +60,7 @@ Plug 'xsbeats/vim-blade'     " Blade templating language
 Plug 'dahu/vim-asciidoc'     " AsciiDoc markup language
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
+Plug 'timcharper/textile.vim'
 
 "------- Text Search
 Plug 'mileszs/ack.vim' " Works with the Perl-based ack command. It requires the ack-grep Ubuntu
@@ -88,10 +93,16 @@ Plug 'tpope/vim-fireplace'
 Plug 'godlygeek/tabular'
 
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
+let g:phpqa_codesniffer_cmd='/home/geoffrey/.composer/vendor/bin/phpcs'
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+let g:syntastic_php_phpcs_args='--report=CSV --standard=PSR2 -n'
 
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
 "==================== 
 " begin: Airline 
 "==================== 
@@ -155,7 +166,7 @@ set number
 set cursorline
 
 "------- GUI Options
-set guifont=Inconsolata\ 12
+set guifont=Inconsolata-g\ for\ Powerline\ 12
 " Do not show left scrollbar.
 set guioptions-=L 
 " Do not show right-handside scrollbar even when there is a vertically-split window.
