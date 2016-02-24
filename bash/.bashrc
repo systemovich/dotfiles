@@ -217,6 +217,12 @@ alias vm="ssh vagrant@127.0.0.1 -p 2222"
 # Laravel Artisan command.
 alias artisan="php artisan"
 
+# Codeception Testing Framework
+alias codecept=vendor/bin/codecept
+
+# Phinx Database Migrator
+alias phinx=vendor/bin/phinx
+
 #------- Other aliases definitions ---------------------------------------------------
 
 # You may want to put all your additions into a separate file like
