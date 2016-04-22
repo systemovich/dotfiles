@@ -1,14 +1,38 @@
-set exrc            " enable per-directory .vimrc files
-set secure          " disable unsafe commands in local .vimrc files
-set noswapfile 
-let mapleader=","
+set exrc        " Enable per-directory .vimrc files.
+set secure      " Disable unsafe commands in local .vimrc files.
+set noswapfile  " Prevents Vim from creating *.swp backup files for buffers.
 
 " Delete trailing white space on save
 autocmd FileType c,cpp,java,php,python,javascript,html,css,markdown,asciidoc autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+"------------------------------------------------------------------------------- 
+" KEY MAP
+"------------------------------------------------------------------------------- 
+
+let mapleader=","
+
+"------- Buffers
+
+nnoremap <leader>b :<C-u>execute 'b' v:count<cr> " Go to buffer number `count`
+nnoremap <leader>bn :bn<cr> " Next buffer
+nnoremap <leader>bp :bp<cr> " Previoue buffer
+nnoremap <leader>bw :bw<cr> " Delete buffer
+
+"------- Files
+
+nnoremap <leader>fs :w<cr>  " Write buffer to file
+nnoremap <leader>ft :NERDTreeTabsToggle<cr> " Show file system tree
+
+"------- Windows
+
+nnoremap <leader>w/ :vs<cr> " Split window vertically 
+nnoremap <leader>w- :sp<cr> " Split window horisontally
+
+
 "-------------------------------------------------------------------------------
-" begin: Plug-In Installation
+" PLUG-INS 
 "-------------------------------------------------------------------------------
+
 call plug#begin('~/.vim/plugged')
 
 "------- Autocompletion
@@ -23,37 +47,34 @@ Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
 
 "------- Comments
-Plug 'scrooloose/nerdcommenter' " Comment and uncomment lines with commands 
-                                " that start with <leader>c. Comment 
-                                " characters are specific to the file type.
+
+Plug 'scrooloose/nerdcommenter' " Language specific comment toggling
 
 "------- Debugging
-Plug 'joonty/vdebug' " XDebug integration for PHP. Also provides debugging 
-                     " integrations for other languages.
 
-"------- File System Navigation
-Plug 'scrooloose/nerdtree'      " Provides a left window split for navigation the 
-                                " file system tree.
-Plug 'jistr/vim-nerdtree-tabs'  " Provides same NERDTree for each tab.
-Plug 'kien/ctrlp.vim'           " Fuzzy file finder. Start it with Ctrl+P key 
-                                " combination. 
+Plug 'joonty/vdebug' " XDebug integration
+
+"------- File System 
+
+Plug 'scrooloose/nerdtree'     " Navigatable file system tree
+Plug 'jistr/vim-nerdtree-tabs' " Provides same NERDTree for each tab.
+Plug 'kien/ctrlp.vim'          " Fuzzy file finder. 
+Plug 'vim-scripts/sudo.vim' " Save file using the sudo command, e.g. :w sudo:%
 
 "------- General
 Plug 'tpope/vim-sensible' " Sensible default settings for GVim.
 
-Plug 'vim-scripts/sudo.vim' " Allows you to save a file using the sudo command,
-                            " e.g. :w sudo:%
- 
 "------- Syntax Checking 
-Plug 'scrooloose/syntastic' " Provides syntax checking for many programming 
-                            " languages.
+
+Plug 'scrooloose/syntastic' " Syntax checking for many programming languages.
 Plug 'walm/jshint.vim'      " Syntax checker for JavaScript
 
 "------- Syntax Highlighting 
-Plug 'jelera/vim-JavaScript-syntax'
-Plug 'jimmyhchan/dustjs.vim' " Dust templating language
-Plug 'xsbeats/vim-blade'     " Blade templating language
-Plug 'dahu/vim-asciidoc'     " AsciiDoc markup language
+
+Plug 'jelera/vim-JavaScript-syntax' " Javascript programming language
+Plug 'jimmyhchan/dustjs.vim'        " Dust templating language
+Plug 'xsbeats/vim-blade'            " Blade templating language
+Plug 'dahu/vim-asciidoc'            " AsciiDoc markup language
 Plug 'dahu/vimple'
 Plug 'dahu/Asif'
 
@@ -62,6 +83,7 @@ Plug 'mileszs/ack.vim' " Works with the Perl-based ack command. It requires the 
                        " package to be installed.
 
 "------- User Interface 
+
 Plug 'bling/vim-airline'    " Provides a more functional and better-looking 
                             " status line.
 Plug 'edkolev/tmuxline.vim' " Allows for passing the settings for Vim's status 
@@ -69,7 +91,8 @@ Plug 'edkolev/tmuxline.vim' " Allows for passing the settings for Vim's status
                             " Tmux in a terminal, then run Vim.
 
 "------- Version Control 
-" Provides Vim versions of some Git commands, e.g. :GitStatus.
+
+" Provides some Git commands, e.g. :GitStatus.
 Plug 'tpope/vim-fugitive'
 
 Plug 'airblade/vim-gitgutter' "  Depends on vim-fugitive. Displays +, -, or ~ in Vim's gutter (column left
@@ -90,6 +113,7 @@ Plug 'godlygeek/tabular'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'tpope/vim-surround'
+
 call plug#end()
 
 "==================== 
@@ -124,7 +148,6 @@ let delimitMate_expand_space = 1
 "==================== 
 " begin: NERDTree 
 "==================== 
-map <leader>n :NERDTreeTabsToggle<cr>
 let g:NERDTreeShowBookmarks=1
 "==================== 
 " end: NERDTree 
@@ -184,10 +207,6 @@ let g:indent_guides_guide_size=1
 set linebreak
 
 "======= begin: Buffers
-nnoremap <leader>b :<C-u>execute 'b' v:count<cr>
-nnoremap <leader>bn :bn<cr>
-nnoremap <leader>bp :bp<cr>
-nnoremap <leader>bw :Bdelete<cr>
 "======= end: Buffers
 
 "======= begin: Clipboard
@@ -197,4 +216,5 @@ set clipboard=unnamedplus
 "======= begin: Code Folding
 "au FileType javascript call JavaScriptFold()
 "======= end: Code Folding
+
 
