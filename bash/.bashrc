@@ -78,6 +78,7 @@ unset safe_term match_lhs sh
 # It can be cloned from https://github.com/magicmonty/bash-git-prompt
 if [ -d ~/.bash_git_prompt ]; then
     GIT_PROMPT_THEME=Solarized_Ubuntu
+    GIT_PROMPT_SHOW_UPSTREAM=1
     source ~/.bash_git_prompt/gitprompt.sh
 else
     # Use the default prompt that comes with the distribution.
@@ -158,6 +159,9 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 # Ruby Gems: Package manager for Ruby
 export PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
 
+# Node Modules: Package manager for Node.js
+export PATH=$HOME/.npm_global/bin:$PATH
+
 #------- Package Management -------------------------------------------------
 
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
@@ -165,8 +169,6 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 #------- Version Control ----------------------------------------------------
 
 export GIT_ASKPASS=/usr/bin/ksshaskpass
-
-export PATH=$HOME/.npm_global/bin:$PATH
 
 #-----------------------------------------------------------------------------
 # Commands
@@ -220,8 +222,11 @@ alias artisan="php artisan"
 # Codeception Testing Framework
 alias codecept=vendor/bin/codecept
 
-# Phinx Database Migrator
-alias phinx=vendor/bin/phinx
+# Behat Testing Framework
+alias behat=vendor/bin/behat
+
+# Database Migration Tool
+alias phinx="php vendor/bin/phinx"
 
 #------- Other aliases definitions ---------------------------------------------------
 
