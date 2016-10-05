@@ -40,6 +40,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
+     games
      ;; git
      ;; markdown
      ;; org
