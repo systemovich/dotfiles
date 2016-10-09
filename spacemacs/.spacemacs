@@ -40,6 +40,8 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
+     erc
+     emoji
      games
      git
      html
