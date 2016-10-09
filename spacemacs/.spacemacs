@@ -301,6 +301,59 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;;---------------------------------------------------------------------------
+  ;; ERC - Emacs IRC Client
+  ;;---------------------------------------------------------------------------
+
+  (defun systemovich/add-channel-to-erc-layout ()
+    "Adds an ERC channel buffer to the @ERC layout."
+    (persp-add-buffer (buffer-name)
+                      (persp-get-by-name "@ERC")
+                      nil))
+
+  (setq erc-nick "systemovich"
+        erc-prompt-for-nickserv-password nil
+        erc-autojoin-channels-alist '(("freenode.net"
+                                       "##php"
+                                       "#laravel"
+                                       "##javascript"
+                                       "#clojure"
+                                       "#hackerrank"
+                                       "#bash"))
+        erc-hide-list '("JOIN" "PART" "QUIT"))
+
+  (add-hook 'erc-join-hook 'systemovich/add-channel-to-erc-layout)
+
+  ;;---------------------------------------------------------------------------
+  ;; Markdown
+  ;;---------------------------------------------------------------------------
+
+  (custom-set-variables
+   '(markdown-command "/usr/bin/pandoc"))
+
+  ;;---------------------------------------------------------------------------
+  ;; Scrolling
+  ;;---------------------------------------------------------------------------
+
+  ;; These three settings are for keeping the prompt at the bottom of the
+  ;; buffer in ERC mode.
+
+  (setq scroll-step 1)
+  (setq scroll-conservatively 10000)
+  (setq auto-window-vscroll nil)
+
+  ;;---------------------------------------------------------------------------
+  ;; Web Mode
+  ;;---------------------------------------------------------------------------
+
+  (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
+
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 4)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
