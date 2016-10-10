@@ -3,6 +3,9 @@
 #------------------------------------------------------------------------------
 
 alias artisan=./artisan
+alias phinx='./vendor/bin/phinx'
+alias xdebug-on='sudo phpenmod -s cli xdebug'
+alias xdebug-off='sudo phpdismod -s cli xdebug'
 
 #------------------------------------------------------------------------------
 # Antigen
