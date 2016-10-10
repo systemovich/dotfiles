@@ -23,6 +23,7 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 antigen bundle colored-man-pages
+antigen bundle tmux
 
 # Bundles from ZSH Users Organisation on GitHub 
 antigen bundle zsh-users/zsh-syntax-highlighting
