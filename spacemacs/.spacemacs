@@ -44,6 +44,7 @@ values."
      emoji
      games
      git
+     gtags
      html
      javascript
      markdown
