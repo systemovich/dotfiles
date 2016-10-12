@@ -363,7 +363,10 @@ you should place your code here."
    [default default default italic underline success warning error])
  '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol nil)
+ '(flycheck-phpcs-standard "PSR2")
  '(markdown-command "/usr/bin/pandoc")
+ '(php-lineup-cascaded-calls t)
+ '(php-mode-coding-style (quote psr2)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
