@@ -328,23 +328,6 @@ you should place your code here."
 
   (add-hook 'erc-join-hook 'systemovich/add-channel-to-erc-layout)
 
-  (custom-set-variables
-   '(erc-track-minor-mode nil))
-
-  ;;---------------------------------------------------------------------------
-  ;; Evil Mode
-  ;;---------------------------------------------------------------------------
-
-  (custom-set-variables
-   '(evil-want-C-i-jump t))
-
-  ;;---------------------------------------------------------------------------
-  ;; Markdown
-  ;;---------------------------------------------------------------------------
-
-  (custom-set-variables
-   '(markdown-command "/usr/bin/pandoc"))
-
   ;;---------------------------------------------------------------------------
   ;; Scrolling
   ;;---------------------------------------------------------------------------
@@ -378,8 +361,9 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol nil)
- '(markdown-command "/usr/bin/pandoc"))
+ '(markdown-command "/usr/bin/pandoc")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
