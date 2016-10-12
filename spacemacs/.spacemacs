@@ -39,6 +39,7 @@ values."
      helm
      auto-completion
      ;; better-defaults
+     clojure
      emacs-lisp
      erc
      emoji
