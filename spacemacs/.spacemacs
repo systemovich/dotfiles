@@ -320,12 +320,13 @@ you should place your code here."
   (setq erc-nick "systemovich"
         erc-prompt-for-nickserv-password nil
         erc-autojoin-channels-alist '(("freenode.net"
-                                       "##php"
-                                       "#laravel"
-                                       "##javascript"
+                                       "#bash"
                                        "#clojure"
+                                       "#git"
                                        "#hackerrank"
-                                       "#bash"))
+                                       "##javascript"
+                                       "#laravel"
+                                       "##php"))
         erc-hide-list '("JOIN" "PART" "QUIT"))
 
   (add-hook 'erc-join-hook 'systemovich/add-channel-to-erc-layout)
