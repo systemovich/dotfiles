@@ -185,7 +185,7 @@ values."
    dotspacemacs-display-default-layout t
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -273,7 +273,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -326,7 +326,8 @@ you should place your code here."
                                        "#hackerrank"
                                        "##javascript"
                                        "#laravel"
-                                       "##php"))
+                                       "##php"
+                                       "#org-mode"))
         erc-hide-list '("JOIN" "PART" "QUIT"))
 
   (add-hook 'erc-join-hook 'systemovich/add-channel-to-erc-layout)
